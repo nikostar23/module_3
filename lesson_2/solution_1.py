@@ -1,3 +1,5 @@
+import datetime
+
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -5,7 +7,8 @@ class Person:
 
     @classmethod
     def from_birth_year(cls, name, birth_year):
-        current_year = 2024  # Задаем текущий год
+        today = datetime.date.today()
+        current_year = today.year # Задаем текущий год
         age = current_year - birth_year
         return cls(name, age)
 
