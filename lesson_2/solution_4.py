@@ -6,6 +6,10 @@ class VehicleType(Enum):
     BOAT = "boat"
     BIKE = "bike"
 
+class Moveable:
+    def move(self) -> None:
+        pass
+
 class Vehicle:
     total_vehicles = 0
 
@@ -46,8 +50,8 @@ class Boat(Vehicle):
     def move(self) -> None:
         print(f"Скорость лодки {self.speed} морских миль")
 
-def move_any_vehicle(vehicle: Vehicle) -> None:
-    vehicle.move()
+def move_any_vehicle(Moveable: Moveable) -> None:
+    Moveable.move()
 
 # Создание объектов через фабричный метод
 car1 = Vehicle.create_vehicle(VehicleType.CAR, 60)
