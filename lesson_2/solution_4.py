@@ -36,17 +36,17 @@ class Vehicle:
     def display_total_vehicles(cls) -> None:
         print(f"Всего было создано {cls.total_vehicles} экз. транспортных средств")
 
-class Car(Vehicle):
+class Car(Vehicle, Moveable):
     def move(self) -> None:
         current_speed = Vehicle.convert_speed_to_kmh(self.speed)
         print(f"Скорость машины {current_speed} км/час")
 
-class Bike(Vehicle):
+class Bike(Vehicle, Moveable):
     def move(self) -> None:
         current_speed = Vehicle.convert_speed_to_kmh(self.speed)
         print(f"Скорость мотоцикла {current_speed} км/час")
 
-class Boat(Vehicle):
+class Boat(Vehicle, Moveable):
     def move(self) -> None:
         print(f"Скорость лодки {self.speed} морских миль")
 
