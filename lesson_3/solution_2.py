@@ -1,42 +1,61 @@
 class Greenhouse:
-    def __init__(self):
-        self.__temperature = 22
-        self.__humidity = 50
-        self.__light_level = 70
-
-    def set_temperature(self, temperature):
-        if 15 <= temperature <= 30:
-            self.__temperature = temperature
-        else:
-            print("Ошибка: Температура должна быть в диапазоне от 15 до 30 градусов")
-
-    def get_temperature(self):
-        return self.__temperature
-
-    def set_humidity(self, humidity):
-        self.__humidity = humidity
-
-    def get_humidity(self):
-        return self.__humidity
-
-    def set_light_level(self, light_level):
+    def __init__(self, temperature = 22, humidity = 40, light_level = 80):
+        self.__temperature = temperature
         self.__light_level = light_level
-
-    def get_light_level(self):
+        self.__humidity = humidity
+    
+    def __str__(self):
+        return f'Текущая температура в теплице: {self.__temperature}\n' \
+               f'Текущий уровень освещенности в теплице: {self.__light_level}\n' \
+               f'Текущий уровень влажности в теплице: {self.__humidity}'
+            
+    @property
+    def temperature(self):
+        return self.__temperature
+    
+    @property
+    def light_level(self):
         return self.__light_level
+    
+    @property
+    def humidity(self):
+        return self.__humidity
+    
+    @temperature.setter
+    def temperature(self, value):
+        if not (15 <= value <= 30):
+            print("Ошибка: Температура должна быть в диапазоне от 15 до 30 градусов")
+        else:
+            self.__temperature = value
+
+    @light_level.setter
+    def light_level(self, value):
+        if not (60 <= value <= 95):
+            print("Ошибка: Освещенность должна быть в диапазоне от 60 до 95")
+        else:
+            self.__light_level = value
+
+    @humidity.setter
+    def humidity(self, value):
+        if not (20 <= value <= 50):
+            print("Ошибка: Влажность должна быть в диапазоне от 20 до 50")
+        else:
+            self.__humidity = value
+  
 
 # Создаем объект Greenhouse
 greenhouse = Greenhouse()
+print(greenhouse)
 
 # Демонстрируем установку и получение атрибутов
-print("Текущая температура в теплице:", greenhouse.get_temperature())
-greenhouse.set_temperature(25)
-print("Новая температура в теплице:", greenhouse.get_temperature())
 
-print("Текущий уровень влажности в теплице:", greenhouse.get_humidity())
-greenhouse.set_humidity(60)
-print("Новый уровень влажности в теплице:", greenhouse.get_humidity())
+greenhouse.temperature = 25
+print(f'Новая температура в теплице: {greenhouse.temperature}')
 
-print("Текущий уровень освещенности в теплице:", greenhouse.get_light_level())
-greenhouse.set_light_level(80)
-print("Новый уровень освещенности в теплице:", greenhouse.get_light_level())
+greenhouse.humidity = 30
+print(f'Новый уровень влажности в теплице: {greenhouse.humidity}')
+
+greenhouse.light_level = 50
+
+greenhouse.light_level = 90
+print(f'Новый уровень освещенности в теплице: {greenhouse.light_level}')
