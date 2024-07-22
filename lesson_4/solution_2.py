@@ -1,5 +1,5 @@
 class FileHandler:
-    def read(self):
+    def read():
         pass
     def write(data: str):
         pass
