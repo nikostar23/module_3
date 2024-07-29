@@ -1,7 +1,7 @@
 class FileHandler:
-    def read():
+    def read(self):
         pass
-    def write(data: str):
+    def write(self, data: str):
         pass
 
 class TextFileHandler(FileHandler):
